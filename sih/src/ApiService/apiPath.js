@@ -1,6 +1,6 @@
 const config = {
   server: {
-    path: "https://vvgnlisandboxapi.herokuapp.com/api/vvgnli/v1/",
+    path: "https://vvgnli.herokuapp.com/api/vvgnli/v1/",
     port: "",
   },
   api: {

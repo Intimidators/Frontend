@@ -14,6 +14,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import "../authCss/auth.css";
 import { useForm } from "react-hook-form";
+import { doLoginIn } from "../../ApiService/userService";
 
 const theme = createTheme();
 
@@ -25,7 +26,7 @@ export default function SignIn() {
   } = useForm();
   const onSubmit = (data) => {
     console.log("hello", data);
-
+    doLoginIn(data);
   };
 
   return (

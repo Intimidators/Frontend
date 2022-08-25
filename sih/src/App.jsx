@@ -38,8 +38,8 @@ function App() {
       <Route path="/resetPassword" element={<ResetPassword />} />
       <Route path="/signup" element={<Signup />} />
 
-      <Route exact path="/community" element={<Community/>}>
-      </Route>
+      {/* <Route exact path="/community" element={<Community/>}> */}
+      {/* </Route> */}
     </Routes>
   );
 }

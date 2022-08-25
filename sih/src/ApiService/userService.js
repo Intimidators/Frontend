@@ -1,9 +1,21 @@
-import axios from 'axios'
+import axios from "axios";
+import config from "./apiPath";
 
-const doSignUp = () => {
-    try {
-        axios.post()
-    } catch (error) {
-        
-    }
-}
+export const doSignUp = async (data) => {
+  try {
+    const res = await axios.post(config.server.path + config.api.signUp, data);
+    console.log(res, "res");
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const doLoginIn = async (data) => {
+  try {
+    const res = await axios.post(config.server.path + config.api.login, data);
+    console.log(res, "res");
+  } catch (error) {
+    console.log(error);
+  }
+};

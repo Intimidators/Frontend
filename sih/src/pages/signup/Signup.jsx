@@ -17,24 +17,22 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormLabel from "@mui/material/FormLabel";
 import { FormControl, FormHelperText } from "@material-ui/core";
 
-<<<<<<< HEAD
 import MuiPhoneNumber from "material-ui-phone-number";
-=======
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
+// import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 // import MuiPhoneNumber from "material-ui-phone-number";
 import { DatePicker, Space } from "antd";
-import 'antd/dist/antd.css';
-import '../authCss/auth.css'
->>>>>>> main
+import "antd/dist/antd.css";
+import "../authCss/auth.css";
 
 import "antd/dist/antd.css";
 import "../authCss/auth.css";
 
 import bgImg from "../images/login_page_bg.webp";
 import { useForm } from "react-hook-form";
+import { doSignUp } from "../../ApiService/userService";
 
 const theme = createTheme();
 
@@ -53,8 +51,22 @@ const Signup = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log("hello", data);
     isValidPhone();
+    const formData = {
+      email: data.email,
+      name: data.firstName + " " + data.lastName,
+      password: data.password,
+      confirmPassword: data.password,
+      fatherName: data.fathersName,
+      gender: data.gender,
+      dateOfBirth: data.dob,
+      religion: "Hindu",
+      userName: data.userName,
+      address: data.address,
+      phoneNumber: phone,
+    };
+    console.log("hello", formData);
+    doSignUp(formData);
   };
   const isValidPhone = () => {
     console.log(
@@ -303,17 +315,13 @@ const Signup = () => {
                   </Box>
                 </Grid>
                 <Grid item xs={12}>
-                  {/* <MuiPhoneNumber
+                  <MuiPhoneNumber
                     fullWidth
                     defaultCountry={"in"}
                     onChange={handleOnChange}
                     variant="outlined"
-<<<<<<< HEAD
                     helperText={phoneError === "" ? phoneError : ""}
                   />
-=======
-                  /> */}
->>>>>>> main
                 </Grid>
 
                 <Grid item xs={12}>
