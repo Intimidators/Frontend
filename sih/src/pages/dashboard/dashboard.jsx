@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import DashboardMenu from "./components/DashboardMenu/dashboardMenu";
 // import DashboardMainMenu from "./main__menu__dashboard/DashboardMainMenu";
 
-const dashboardHome = () => {
+const DashboardHome = () => {
   return (
     <div className="dashboard">
       <div className="dashboard__body">
@@ -16,4 +16,4 @@ const dashboardHome = () => {
   );
 };
 
-export default dashboardHome;
+export default DashboardHome;
