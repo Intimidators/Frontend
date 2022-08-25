@@ -34,34 +34,35 @@ const ResearchMainContent = () => {
             <ul>
               <li>Centre for Labour Market Studies</li>
               <li>Centre for Employment Relations and Regulations</li>
+
               <li>
-                To undertake, aid, promote and co-ordinate research on its own
-                or in collaboration with other agencies both at national and
-                international levels;
+                Centre for Agrarian Relations, Rural and Behavioural Studies
+              </li>
+              <li>Centre for National Resource Centre on Child Labour</li>
+              <li>
+              Centre for Integrated Labour History Research Programme
+
               </li>
               <li>
-                To establish wings for:
-                <ul>
-                  <li>education, training and orientation;</li>
-                  <li>research including action-research;</li>
-                  <li>consultancy; and</li>
-                  <li>
-                    publication and such other activities as may be necessary to
-                    achieve the objectives of the Institute.
-                  </li>
-                </ul>
+              Centre for Labour and Health Studies
+
               </li>
               <li>
-                To analyse specific problems that are encountered in the
-                planning and implementation of labour and allied programmes and
-                to suggest remedial measures;
+              Centre for Gender and Labour Studies
+
               </li>
               <li>
-                To establish and maintain library and information services and
-                collaborate with other institutions and agencies in India and
-                abroad which have similar objectives.
+              Centre for North-East India
+
+              </li>
+              <li>
+              Centre for Climate Change and Labour
+
               </li>
             </ul>
+            <p>Each centre is guided by a Research Advisory Committee which consists of experts in the respective areas. The Institute’s faculty have been allocated to these Centers in accordance with their specializations, experience and interests.
+
+</p>
           </section>
           {/* <FooterVvgnli /> */}
         </div>

@@ -11,7 +11,7 @@ const Vvgnli = () => {
     <>
       <VvgnliMainMenu />
       <div className="vvgnli">
-        <div className="vvgnliContainer">
+        <div className="vvgnli__container">
           <Home />
         </div>
       </div>

@@ -58,8 +58,14 @@ const PeopleSubmenu = () => {
             handleItemClick();
           }}
         >
-          <MenuItem onClick={handleItemClick}>Dr. Helen R Sekar</MenuItem>
-          <MenuItem onClick={handleItemClick}>Dr. Sanjay Upadhyaya</MenuItem>
+          <MenuItem onClick={() => {
+            navigate("/vvgnli/people/senior-fellow/helen");
+            handleItemClick();
+          }}>Dr. Helen R Sekar</MenuItem>
+          <MenuItem onClick={() => {
+            navigate("/vvgnli/people/senior-fellow/sanjay");
+            handleItemClick();
+          }}>Dr. Sanjay Upadhyaya</MenuItem>
         </NestedMenuItem>
         <NestedMenuItem
           label="Fellows"

@@ -43,9 +43,12 @@ import ITEC__Sanction__FY__2022__23 from "./vvgnli/pages/training/components/ITE
 import Training__Calendar__2022__2023__English from "./vvgnli/pages/training/components/Training-Calendar-2022-2023-English/Training__Calendar__2022__2023__English";
 import Training__Calendar__2022__2023__Hindi from "./vvgnli/pages/training/components/Training-Calendar-2022-2023-Hindi/Training__Calendar__2022__2023__Hindi";
 
+
 import People from "./vvgnli/pages/people/People";
 
 import DirectorGeneral from "./vvgnli/pages/people/components/director__general/DirectorGeneral";
+import Sanjay from "./vvgnli/pages/people/components/senior__fellow/sanjay/Sanjay";
+import Helen from "./vvgnli/pages/people/components/senior__fellow/helen/Helen";
 
 import SeniorFellow from "./vvgnli/pages/people/components/senior__fellow/SeniorFellow";
 
@@ -172,6 +175,14 @@ const App = () => {
             <Route
               path="vvgnli/people/senior-fellow"
               element={<SeniorFellow />}
+            />
+            <Route
+              path="vvgnli/people/senior-fellow/sanjay"
+              element={<Sanjay />}
+            />
+            <Route
+              path="vvgnli/people/senior-fellow/helen"
+              element={<Helen />}
             />
 
             <Route path="/vvgnli/e-resource" element={<EResource />} />
