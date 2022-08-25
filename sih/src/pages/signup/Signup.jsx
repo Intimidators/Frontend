@@ -1,11 +1,11 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -18,11 +18,11 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import MuiPhoneNumber from "material-ui-phone-number";
-import { DatePicker, Space } from "antd";
+import { DatePicker } from "antd";
 import 'antd/dist/antd.css';
 import '../authCss/auth.css'
 
-import bgImg from '../images/login_page_bg.webp'
+
 
 const theme = createTheme();
 
@@ -35,6 +35,8 @@ const Signup = () => {
   const [countryName, setCountryName] = useState("");
   const [value, setValue] = useState(null);
   const [selectedDate, handleDateChange] = useState(new Date());
+
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -225,7 +227,7 @@ const Signup = () => {
               </Button>
               <Grid container justifyContent="flex-end">
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <Link to={"/login"} variant="body2">
                     Already have an account? Sign in
                   </Link>
                 </Grid>
