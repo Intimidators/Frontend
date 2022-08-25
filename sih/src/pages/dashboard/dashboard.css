@@ -1,10 +1,24 @@
-.dashboard__body__homepage{
-    padding: 5px;
+.dashboard__pending__photos{
+  height: 100%;
 }
 
-.dashboard{
-  height: 85vh;
+.dashboard__body__homepage {
+  padding: 5px;
+  height: 100%;
+}
+
+.dashboard {
+  height: 80vh;
   margin-top: 15vh;
-  background-color: #fff;
+  background-color: blue;
   padding: 10px;
+}
+
+.dashboard__body {
+  background-color: #fff;
+  height: 100%;
+}
+
+.dashboard__pending__photos__card__container--list{
+  height: 100%;
 }

@@ -2,18 +2,21 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import DashboardMenu from "./components/DashboardMenu/dashboardMenu";
 // import DashboardMainMenu from "./main__menu__dashboard/DashboardMainMenu";
+import "./dashboard.css";
 
-const DashboardHome = () => {
+const Dashboard = () => {
   return (
-    <div className="dashboard">
-      <div className="dashboard__body">
-        <DashboardMenu />
-        <div className="dashboard__body__homepage">
-          <Outlet />
+    <div>
+      <DashboardMenu />
+      <div className="dashboard">
+        <div className="dashboard__body">
+          <div className="dashboard__body__homepage">
+            <Outlet />
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default DashboardHome;
+export default Dashboard;

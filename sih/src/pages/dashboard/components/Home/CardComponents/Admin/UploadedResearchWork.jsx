@@ -6,14 +6,12 @@ import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
 import TableHead from "@mui/material/TableHead";
 import Paper from "@mui/material/Paper";
-import "./pendingSection.css";
-import DoneIcon from "@mui/icons-material/Done";
-import CancelIcon from "@mui/icons-material/Cancel";
 import { Typography } from "@mui/material";
 import { tableCellClasses } from "@mui/material/TableCell";
 import { styled } from "@mui/material/styles";
+import { Button } from "@material-ui/core";
 import axios from "axios";
-// import config from "../../../../ApiConfig/Config";
+import config from "../../../../../../ApiConfig/Config";
 import moment from "moment";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -32,66 +30,45 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-const PendingResearchWorkForApproval = () => {
-  var userFromSession = JSON.parse(sessionStorage.getItem("user"));
-  // const userId = userFromSession.userId;
-
-  const [pendingResearchPapers, setPendingResearchPapers] = useState([]);
-
-  // const getPendingResearchPapers = async () => {
-  //   try {
-  //     const res = await axios.get(
-  //       config.server.path +
-  //         config.api.getPendingResearchWork +
-  //         `?userId=${userId}`
-  //     );
-  //     setPendingResearchPapers(res.data.pendingResearchWork);
-  //     console.log("Research", res.data.pendingResearchWork);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  const handleCancelClick = async (id) => {
-    console.log("Cancel", id);
-    const obj = {
-      mediaId: id,
-      postStatus: "2",
-    };
-    // try {
-    //   const res = await axios.post(
-    //     config.server.path +
-    //     config.api.updatePostStatus,
-    //     {
-    //       ...obj,
-    //     },
-    //     { headers: { "User-Id": userId } }
-    //   );
-    //   getPendingResearchPapers();
-    // } catch (error) {
-    //   console.log(error);
-    // }
+const UploadedResearchWork = () => {
+  const [approvedResearchPapers, setApprovedResearchPapers] = useState([]);
+  const userRoleFromSession = JSON.parse(sessionStorage.getItem("user"));
+  const userId = userRoleFromSession.userId;
+  const getApprovedResearchPapers = async () => {
+    try {
+      const res = await axios.get(
+        config.server.path +
+          config.api.getApprovedResearchWork +
+          `?userId=${userId}`
+      );
+      setApprovedResearchPapers(res.data.approvedResearchWork);
+      console.log(" Approved Research Paperd", res.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const handleDoneClick = async (id) => {
-    console.log("Done");
-    const obj = {
-      mediaId: id,
-      postStatus: "1",
-    };
-    // const res = await axios.post(
-    //   config.server.path +
-    //   config.api.updatePostStatus,
-    //   {
-    //     ...obj,
-    //   },
-    //   { headers: { "User-Id": userId } }
-    // );
-    // getPendingResearchPapers();
+  const handleDeleteResearch = async (mediaId) => {
+    console.log("Delete Research");
+    try {
+      const res = await axios.post(
+        config.server.path +
+          config.role.admin +
+          config.api.deletePost +
+          `?userId=${userId}`,
+        {
+          mediaId: mediaId,
+        }
+      );
+      await getApprovedResearchPapers();
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
-    // getPendingResearchPapers();
+    getApprovedResearchPapers();
   }, []);
 
   return (
@@ -99,7 +76,7 @@ const PendingResearchWorkForApproval = () => {
       <div className="dashboard__research__container">
         <div className="dashboard__research__heading">
           <Typography variant="h3" gutterBottom component="div">
-           Pending For Approval Research Section
+            Research Section
           </Typography>
         </div>
         <div className="dashboard__research__table">
@@ -115,21 +92,24 @@ const PendingResearchWorkForApproval = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {pendingResearchPapers &&
-                  pendingResearchPapers.map((pendingResearchPaper) => (
-                    <StyledTableRow key={pendingResearchPaper.mediaId}>
+                {approvedResearchPapers &&
+                  approvedResearchPapers.map((approvedResearchPaper) => (
+                    <StyledTableRow key={approvedResearchPaper.mediaId}>
                       <StyledTableCell align="left">
-                        {pendingResearchPaper.userId}
+                        {/* {approvedResearchPaper.userId} */}
+                        Hardcoded userId
                       </StyledTableCell>
                       <StyledTableCell align="left">
-                        {moment(pendingResearchPaper.currentTimeStamp).format("dddd DD MMMM YYYY")}
+                        {moment(approvedResearchPaper.currentTimeStamp).format(
+                          "dddd DD MMMM YYYY"
+                        )}
                       </StyledTableCell>
                       <StyledTableCell align="left">
-                        {pendingResearchPaper.mediaId}
+                        {approvedResearchPaper.mediaId}
                       </StyledTableCell>
                       <StyledTableCell align="left">
                         <a
-                          href={pendingResearchPaper.mediaURL}
+                          href={approvedResearchPaper.mediaURL}
                           target="_blank"
                           rel="noreferrer"
                         >
@@ -137,18 +117,13 @@ const PendingResearchWorkForApproval = () => {
                         </a>
                       </StyledTableCell>
                       <StyledTableCell align="right">
-                          <CancelIcon
-                            color="action"
-                            onClick={()=>handleCancelClick(
-                              pendingResearchPaper.mediaId
-                            )}
-                          />
-                          <DoneIcon
-                            color="primary"
-                            onClick={()=>handleDoneClick(
-                              pendingResearchPaper.mediaId
-                            )}
-                          />
+                        <Button
+                          onClick={() =>
+                            handleDeleteResearch(approvedResearchPaper.mediaId)
+                          }
+                        >
+                          Delete
+                        </Button>
                       </StyledTableCell>
                     </StyledTableRow>
                   ))}
@@ -161,4 +136,4 @@ const PendingResearchWorkForApproval = () => {
   );
 };
 
-export default PendingResearchWorkForApproval;
+export default UploadedResearchWork;
