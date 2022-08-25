@@ -1,9 +1,22 @@
-import React from 'react'
+import React from "react";
+import { Outlet } from "react-router-dom";
+import DashboardMenu from "./components/DashboardMenu/dashboardMenu";
+// import DashboardMainMenu from "./main__menu__dashboard/DashboardMainMenu";
+import "./dashboard.css";
 
-const dashboardHome = () => {
+const Dashboard = () => {
   return (
-    <div>dashboardHome</div>
-  )
-}
+    <div>
+      <DashboardMenu />
+      <div className="dashboard">
+        <div className="dashboard__body">
+          <div className="dashboard__body__homepage">
+            <Outlet />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default dashboardHome
+export default Dashboard;
