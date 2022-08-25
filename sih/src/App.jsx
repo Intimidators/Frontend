@@ -1,12 +1,13 @@
-import './App.css';
+import "./App.css";
 
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
 
 // pages routes
-import Login from './pages/login/Login';
-import Signup from './pages/signup/Signup';
+import Login from "./pages/login/Login";
+import Signup from "./pages/signup/Signup";
+import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
+import ResetPassword from "./pages/resetPassword/ResetPassword";
 // pages Routes ends
-
 
 // portals routes
 
@@ -14,12 +15,12 @@ import Signup from './pages/signup/Signup';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/forgotPassword" element={<ForgotPassword />} />
+      <Route path="/resetPassword" element={<ResetPassword />} />
+      <Route path="/signup" element={<Signup />} />
+    </Routes>
   );
 }
 
