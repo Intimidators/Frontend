@@ -14,7 +14,8 @@ export const doSignUp = async (data) => {
 export const doLoginIn = async (data) => {
   try {
     const res = await axios.post(config.server.path + config.api.login, data);
-    console.log(res, "res");
+    console.log(res.data, "res");
+    return res.data
   } catch (error) {
     console.log(error);
   }

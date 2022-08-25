@@ -24,9 +24,17 @@ export default function SignIn() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log("hello", data);
-    doLoginIn(data);
+    try {
+      const res = await doLoginIn(data);
+      console.log("res", res);
+      const user = { ...res.user, profilePic: res.profilePicURL };
+      console.log(user);
+      localStorage.setItem("user", JSON.stringify(user));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
