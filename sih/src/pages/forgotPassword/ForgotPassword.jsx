@@ -10,6 +10,9 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { useForm } from "react-hook-form";
 import "../authCss/auth.css";
+import { doForgotPassword } from "../../ApiService/userService";
+
+
 
 const theme = createTheme();
 
@@ -19,12 +22,18 @@ export default function ForgotPassword() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-    });
+  const onSubmit = async (data) => {
+
+console.log(data);
+    try {
+      const res = await doForgotPassword(data);
+      console.log("res", res);
+      const user = { ...res.user, profilePic: res.profilePicURL };
+      console.log(user);
+      localStorage.setItem("user", JSON.stringify(user));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

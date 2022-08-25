@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@emotion/is-prop-valid": "^1.2.0",
     "@emotion/memoize": "^0.8.0",
     "@emotion/react": "^11.10.0",
@@ -13,12 +14,24 @@
     "@emotion/weak-memoize": "^0.3.0",
     "@mui/icons-material": "^5.10.2",
     "@mui/material": "^5.10.2",
+=======
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "@mui/core": "^5.0.0-alpha.54",
+    "@mui/icons-material": "^5.10.2",
+    "@mui/material": "^5.10.2",
+    "@reduxjs/toolkit": "^1.8.5",
+>>>>>>> main
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.22.7",
+    "axios": "^0.27.2",
     "date-fns": "^2.29.2",
     "material-ui-phone-number": "^3.0.0",
+    "numeral": "^2.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.34.2",
@@ -26,7 +39,11 @@
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-ticker": "^1.3.2",
+    "react-toastify": "^9.0.8",
     "redux": "^4.2.0",
+    "ticker": "^0.1.0",
+    "unsplash-js": "^7.0.15",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
