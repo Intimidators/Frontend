@@ -5,7 +5,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
+
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -18,19 +18,14 @@ import FormLabel from "@mui/material/FormLabel";
 import { FormControl, FormHelperText } from "@material-ui/core";
 
 import MuiPhoneNumber from "material-ui-phone-number";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-// import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-// import MuiPhoneNumber from "material-ui-phone-number";
-import { DatePicker, Space } from "antd";
+
 import "antd/dist/antd.css";
 import "../authCss/auth.css";
 
 import "antd/dist/antd.css";
 import "../authCss/auth.css";
 
-import bgImg from "../images/login_page_bg.webp";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { doSignUp } from "../../ApiService/userService";
 
@@ -410,9 +405,7 @@ const Signup = () => {
               </Button>
               <Grid container justifyContent="flex-end">
                 <Grid item>
-                  <Link href="#" variant="body2">
-                    Already have an account? Sign in
-                  </Link>
+                  <Link to={"/login"}>Already have an account? Sign in</Link>
                 </Grid>
               </Grid>
             </Box>

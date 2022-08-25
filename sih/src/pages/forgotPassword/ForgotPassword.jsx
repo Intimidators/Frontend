@@ -19,12 +19,8 @@ export default function ForgotPassword() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-    });
+  const onSubmit = (data) => {
+    
   };
 
   return (
