@@ -11,6 +11,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useForm } from "react-hook-form";
 
 import "../authCss/auth.css";
+import { useLocation } from "react-router-dom";
 
 const theme = createTheme();
 
@@ -21,6 +22,8 @@ export default function ResetPassword() {
     watch,
     formState: { errors },
   } = useForm();
+  const location = useLocation();
+  console.log(location.state);
   const onSubmit = (data) => {
     console.log("hello", data);
   };

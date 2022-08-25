@@ -4,7 +4,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -15,7 +14,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "../authCss/auth.css";
 import { useForm } from "react-hook-form";
 import { doLoginIn } from "../../ApiService/userService";
-
+import { Link, useLocation, useNavigate } from "react-router-dom";
 const theme = createTheme();
 
 export default function SignIn() {
@@ -24,6 +23,8 @@ export default function SignIn() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  
+  const navigate = useNavigate();
   const onSubmit = async (data) => {
     console.log("hello", data);
     try {
@@ -31,7 +32,18 @@ export default function SignIn() {
       console.log("res", res);
       const user = { ...res.user, profilePic: res.profilePicURL };
       console.log(user);
-      localStorage.setItem("user", JSON.stringify(user));
+
+      if (user.isTempPassword === 1) {
+        navigate("/resetPassword", {
+          state: {
+            userId: user.userId,
+            email: user.email,
+          },
+        });
+      } else {
+        navigate("/");
+        localStorage.setItem("user", JSON.stringify(user));
+      }
     } catch (error) {
       console.log(error);
     }
@@ -104,12 +116,10 @@ export default function SignIn() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
+                <Link to={"/forgotPassword"}>Forgot password?</Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link to={"/signUp"} variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
