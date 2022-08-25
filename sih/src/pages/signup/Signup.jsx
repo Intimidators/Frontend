@@ -17,7 +17,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import MuiPhoneNumber from "material-ui-phone-number";
+// import MuiPhoneNumber from "material-ui-phone-number";
 import { DatePicker, Space } from "antd";
 import 'antd/dist/antd.css';
 import '../authCss/auth.css'
@@ -165,12 +165,12 @@ const Signup = () => {
                   </Box>
                 </Grid>
                 <Grid item xs={12}>
-                  <MuiPhoneNumber
+                  {/* <MuiPhoneNumber
                     fullWidth
                     defaultCountry={"in"}
                     onChange={handleOnChange}
                     variant="outlined"
-                  />
+                  /> */}
                 </Grid>
 
                 <Grid item xs={12}>
