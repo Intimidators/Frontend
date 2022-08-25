@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 import "../authCss/auth.css";
 import { useForm } from "react-hook-form";
 import { doLoginIn } from "../../ApiService/userService";
-
+import { Link, useLocation, useNavigate } from "react-router-dom";
 const theme = createTheme();
 
 export default function SignIn() {
@@ -25,6 +25,10 @@ export default function SignIn() {
     formState: { errors },
   } = useForm();
   
+<<<<<<< HEAD
+=======
+  const navigate = useNavigate();
+>>>>>>> cd60350beef44877280f3f196341663987fb137a
   const onSubmit = async (data) => {
     console.log("hello", data);
     try {
@@ -32,7 +36,18 @@ export default function SignIn() {
       console.log("res", res);
       const user = { ...res.user, profilePic: res.profilePicURL };
       console.log(user);
-      localStorage.setItem("user", JSON.stringify(user));
+
+      if (user.isTempPassword === 1) {
+        navigate("/resetPassword", {
+          state: {
+            userId: user.userId,
+            email: user.email,
+          },
+        });
+      } else {
+        navigate("/");
+        localStorage.setItem("user", JSON.stringify(user));
+      }
     } catch (error) {
       console.log(error);
     }
@@ -105,12 +120,19 @@ export default function SignIn() {
             </Button>
             <Grid container>
               <Grid item xs>
+<<<<<<< HEAD
                 <Link to={"/forgotPassword"} variant="body2">
                   Forgot password?
                 </Link>
               </Grid>
               <Grid item>
                 <Link to={"/signup"} variant="body2">
+=======
+                <Link to={"/forgotPassword"}>Forgot password?</Link>
+              </Grid>
+              <Grid item>
+                <Link to={"/signUp"} variant="body2">
+>>>>>>> main
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

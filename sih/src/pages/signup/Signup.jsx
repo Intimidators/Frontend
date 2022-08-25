@@ -6,6 +6,10 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -18,6 +22,7 @@ import FormLabel from "@mui/material/FormLabel";
 import { FormControl, FormHelperText } from "@material-ui/core";
 
 import MuiPhoneNumber from "material-ui-phone-number";
+<<<<<<< HEAD
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 // import FormControl from "@mui/material/FormControl";
@@ -32,13 +37,16 @@ import '../authCss/auth.css'
 =======
 // import MuiPhoneNumber from "material-ui-phone-number";
 import { DatePicker, Space } from "antd";
+=======
+
+>>>>>>> main
 import "antd/dist/antd.css";
 import "../authCss/auth.css";
 
 import "antd/dist/antd.css";
 import "../authCss/auth.css";
 
-import bgImg from "../images/login_page_bg.webp";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { doSignUp } from "../../ApiService/userService";
 >>>>>>> main
@@ -441,9 +449,13 @@ const Signup = () => {
               </Button>
               <Grid container justifyContent="flex-end">
                 <Grid item>
+<<<<<<< HEAD
                   <Link to={"/login"} variant="body2">
                     Already have an account? Sign in
                   </Link>
+=======
+                  <Link to={"/login"}>Already have an account? Sign in</Link>
+>>>>>>> main
                 </Grid>
               </Grid>
             </Box>
