@@ -1,0 +1,11 @@
+.vvgnli{
+    height: 83vh;
+    border: 2px solid red;
+    padding-top: 2.2rem;
+    background-color: #1976d2;
+}
+
+.vvgnliContainer{
+    display: flex;
+    /* border: 2px solid red; */
+}
