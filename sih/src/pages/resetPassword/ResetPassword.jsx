@@ -10,7 +10,10 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useForm } from "react-hook-form";
 
+
+
 import "../authCss/auth.css";
+import { doResetPassword } from "../../ApiService/userService";
 
 const theme = createTheme();
 
@@ -21,8 +24,17 @@ export default function ResetPassword() {
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log("hello", data);
+    try {
+      const res = await doResetPassword(data);
+      console.log("res", res);
+      const user = { ...res.user, profilePic: res.profilePicURL };
+      console.log(user);
+      localStorage.setItem("user", JSON.stringify(user));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

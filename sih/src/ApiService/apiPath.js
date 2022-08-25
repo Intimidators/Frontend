@@ -34,7 +34,7 @@ const config = {
     getFutureWebinars: "webinars/getFutureWebinars",
     getOngoingWebinars: "webinars/getOngoingWebinars",
     getPastWebinars: "webinars/getPastWebinars",
-    updatePassword: "user/update-password",
+    updatePassword: "update-password",
     handlePostPic: "handleProfilePic",
     getLikedPost: "getLikedPost",
     updateProfile: "updateProfile",

@@ -20,3 +20,23 @@ export const doLoginIn = async (data) => {
     console.log(error);
   }
 };
+
+export const doForgotPassword = async (data) => {
+  try {
+    const res = await axios.post(config.server.path + config.api.forgotpassword, data);
+    console.log(res.data, "res");
+    return res.data
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const doResetPassword = async (data) => {
+  try {
+    const res = await axios.post(config.server.path + config.api.updatePassword, data);
+    console.log(res.data, "res");
+    return res.data
+  } catch (error) {
+    console.log(error);
+  }
+};
