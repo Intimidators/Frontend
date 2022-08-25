@@ -13,7 +13,11 @@ import { useForm } from "react-hook-form";
 
 
 import "../authCss/auth.css";
+<<<<<<< HEAD
 import { doResetPassword } from "../../ApiService/userService";
+=======
+import { useLocation } from "react-router-dom";
+>>>>>>> cd60350beef44877280f3f196341663987fb137a
 
 const theme = createTheme();
 
@@ -24,7 +28,13 @@ export default function ResetPassword() {
     watch,
     formState: { errors },
   } = useForm();
+<<<<<<< HEAD
   const onSubmit = async (data) => {
+=======
+  const location = useLocation();
+  console.log(location.state);
+  const onSubmit = (data) => {
+>>>>>>> cd60350beef44877280f3f196341663987fb137a
     console.log("hello", data);
     try {
       const res = await doResetPassword(data);

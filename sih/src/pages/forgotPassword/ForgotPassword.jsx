@@ -22,6 +22,7 @@ export default function ForgotPassword() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+<<<<<<< HEAD
   const onSubmit = async (data) => {
 
 console.log(data);
@@ -34,6 +35,10 @@ console.log(data);
     } catch (error) {
       console.log(error);
     }
+=======
+  const onSubmit = (data) => {
+    
+>>>>>>> cd60350beef44877280f3f196341663987fb137a
   };
 
   return (
